@@ -22,7 +22,7 @@
 
 .logo {
   //color: #4263eb;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 1;
   letter-spacing: -2px;
   align-items: center;
@@ -35,10 +35,18 @@
 
 .link {
   color: #495057;
-  font-size: 14px;
+  //font-size: 14px;
   font-weight: 500;
   display: flex !important;
   align-items: center;
+
+  .vacanciesList {
+    font-size: 22px !important;
+  }
+}
+
+.groupLinks {
+  margin-left: 28%;
 }
 
 .link,
@@ -52,7 +60,7 @@
 
 .active {
   font-weight: 600;
-  color: #4263eb !important;
+  color: #0f0f10 !important;
 }
 
 
