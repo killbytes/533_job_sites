@@ -2,4 +2,4 @@
 
 Vite + React + TypeScript + Mantine + Redux Toolkit + RTK Query.
 
-[`link-page`](https://killbytes.github.io/533_job_site/)
+[`link-page`](https://killbytes.github.io/533_job_sites/)
