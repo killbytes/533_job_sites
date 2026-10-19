@@ -7,6 +7,7 @@ import "@mantine/notifications/styles.css";
 import { Provider } from "react-redux";
 import { store } from "./store";
 import {router} from "@/router.tsx";
+import {RouterProvider} from 'react-router';
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

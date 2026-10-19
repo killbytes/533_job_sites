@@ -9,6 +9,11 @@
   }
 }
 
+.link_logo {
+  color: inherit;
+  text-decoration: none;
+}
+
 .inner {
   height: 100%;
   display: flex;
@@ -36,12 +41,38 @@
   align-items: center;
 }
 
+.link,
+.about {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-.link:hover {
+.active {
+  font-weight: 600;
+  color: #4263eb !important;
+}
+
+
+.link:hover,
+.about:hover,
+.active {
+  //color: #0f0f10;
   color: #4263eb;
 }
 
 .about {
+  color: #0f0f1080;
   align-items: center;
   display: flex !important;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #4263eb;
 }
