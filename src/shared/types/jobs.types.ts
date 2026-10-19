@@ -11,6 +11,8 @@ export interface Job {
     space: JobSpace;
     skills: string;
     experience: string;
+    description: string;
+    about_company: string;
 }
 
 export interface JobsQueryParams {
@@ -21,6 +23,13 @@ export interface JobsQueryParams {
 }
 
 export interface JobsFiltersState {
+    search: string;
+    city: string;
+    skills: string[];
+    page: number;
+}
+
+export interface JobsFilters {
     search: string;
     city: string;
     skills: string[];

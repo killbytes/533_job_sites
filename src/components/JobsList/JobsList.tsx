@@ -1,17 +1,12 @@
 import {Center, Loader, Pagination, Stack, Text} from '@mantine/core';
 import {useGetJobsQuery} from '../../store/jobs/jobsApi';
-import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {selectJobsFilters} from '../../store/jobs/jobsSelectors';
-import {setPage} from '../../store/jobs/jobsSlice';
 import {JobCard} from '../JobCard/JobCard';
 import classes from './JobsList.module.scss';
+import {useJobsFilters} from "@/hooks/useJobsFilters.ts";
 
 export function JobsList() {
-    const dispatch = useAppDispatch();
-    const filters = useAppSelector(selectJobsFilters);
+    const {filters, setPage} = useJobsFilters();
     const {data, isLoading, isError} = useGetJobsQuery(filters);
-
-    console.log(data)
 
     if (isLoading) {
         return (
@@ -48,8 +43,8 @@ export function JobsList() {
             <Center>
                 <Pagination
                     value={filters.page}
-                    total={data.pagination.totalPages}
-                    onChange={(page) => dispatch(setPage(page))}
+                    total={data.pagination.totalPages ?? 0}
+                    onChange={(page) => setPage(page)}
                 />
             </Center>
         </Stack>

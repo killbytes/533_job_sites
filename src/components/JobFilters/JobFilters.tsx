@@ -1,26 +1,27 @@
 import {Select, Stack} from '@mantine/core';
 import {useMemo} from 'react';
-import {useAppDispatch, useAppSelector} from '../../store/hooks';
-import {selectCity, selectJobsFilters} from '../../store/jobs/jobsSelectors';
-import {setCity} from '../../store/jobs/jobsSlice';
 import {SkillsInput} from '../SkillsInput/SkillsInput';
 import classes from './JobFilters.module.scss';
 import {useGetJobsQuery} from "@/store/jobs/jobsApi.ts";
 import {IconMapPin} from "@tabler/icons-react";
+import { useJobsFilters } from '../../hooks/useJobsFilters';
 
 export function JobFilters() {
-    const dispatch = useAppDispatch();
-    const filters = useAppSelector(selectJobsFilters);
-    const {data} = useGetJobsQuery(filters);
-    const city = useAppSelector(selectCity);
+    const {filters, setCity, setSkills,} = useJobsFilters();
+    const { data: citiesData } = useGetJobsQuery({
+        page: 1,
+        search: '',
+        city: '',
+        skills: [],
+    });
 
     const cities = useMemo(() => {
-        if (!data?.jobs) {
+        if (!citiesData?.jobs) {
             return [];
         }
-        return [...new Set(data.jobs.map((job) => job.city))]
+        return [...new Set(citiesData.jobs.map((job) => job.city))]
             .sort((a, b) => a.localeCompare(b, 'ru'));
-    }, [data?.jobs]);
+    }, [citiesData?.jobs]);
 
     const cityOptions = [
         {value: '', label: 'Все города'},
@@ -37,7 +38,10 @@ export function JobFilters() {
                 p="md"
                 style={{borderRadius: 8}}
             >
-                <SkillsInput/>
+                <SkillsInput
+                    skills={filters.skills}
+                    onChange={setSkills}
+                />
             </Stack>
             <Stack
                 bg="white"
@@ -45,11 +49,11 @@ export function JobFilters() {
                 style={{borderRadius: 8}}
             >
                 <Select
-                    leftSection={<IconMapPin size={16}/>}
+                    leftSection={<IconMapPin size={16} />}
                     placeholder="Все города"
                     data={cityOptions}
-                    value={city || 'all'}
-                    onChange={(value) => dispatch(setCity(value === 'all' ? '' : value ?? ''))}
+                    value={filters.city || null}
+                    onChange={(value) => setCity(value ?? '')}
                     allowDeselect={false}
                 />
             </Stack>
