@@ -17,6 +17,6 @@ export const router = createBrowserRouter(
         </>,
     ),
     {
-        basename: '/533_job_site',
+        basename: '/533_job_sites',
     },
 );
