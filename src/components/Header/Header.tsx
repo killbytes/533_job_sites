@@ -16,13 +16,11 @@ export function Header() {
                             .FrontEnd
                         </Text>
                     </RouterNavLink>
-
                     <Group gap="md" className={classes.groupLinks}>
                         <RouterNavLink to="/vacancies" end className={({ isActive }) => `${classes.link} ${isActive ? classes.active : ''}`}>
                             <span className={classes.vacanciesList}>Вакансии FE</span>
                             <span className={classes.dot} />
                         </RouterNavLink>
-
                         <RouterNavLink to="/about" className={({ isActive }) => `${classes.about} ${isActive ? classes.active : ''}`}>
                             <img src={User} alt="" className={classes.logoimg} />
                             Обо мне

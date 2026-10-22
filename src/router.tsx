@@ -3,6 +3,7 @@ import { Layout } from './Layout';
 import { JobsPage } from './pages/JobsPage/JobsPage';
 import { VacancyPage } from './pages/VacancyPage/VacancyPage';
 import { AboutPage } from './pages/AboutPage/AboutPage';
+import { ErrorPage } from './pages/ErrorPage/ErrorPage';
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -12,7 +13,7 @@ export const router = createBrowserRouter(
                 <Route path="vacancies" element={<JobsPage />} />
                 <Route path="vacancies/:id" element={<VacancyPage />} />
                 <Route path="about" element={<AboutPage />} />
-                <Route path="*" element={<Navigate to="/vacancies" replace />} />
+                <Route path="*" element={<ErrorPage />} />
             </Route>
         </>,
     ),

@@ -59,17 +59,14 @@ export function VacancyPage() {
                             <Text size="sm" fw={500}>
                                 {formatSalary(job.salary)}
                             </Text>
-
                             <Text size="sm" c="dimmed">
                                 {job.experience}
                             </Text>
                         </Group>
-
                         <Stack gap={4} mt={8}>
                             <Text size="sm" c="dimmed" ta="left">
                                 {job.company_name}
                             </Text>
-
                             <Badge
                                 color="blue"
                                 variant="filled"
@@ -78,7 +75,6 @@ export function VacancyPage() {
                             >
                                 {formatSpace(job.space)}
                             </Badge>
-
                             <Text size="sm" ta="left">
                                 {job.city}
                             </Text>
@@ -90,15 +86,12 @@ export function VacancyPage() {
                         <Title order={4} ta="left">
                             Компания
                         </Title>
-
                         <Text className="description" ta="left">
                             {job.about_company}
                         </Text>
-
                         <Text fw={600} size="sm" ta="left">
                             О вакансии:
                         </Text>
-
                         <Text className="description" ta="left">
                             {job.description}
                         </Text>

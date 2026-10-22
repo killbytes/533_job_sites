@@ -7,7 +7,6 @@ import {useJobsFilters} from "@/hooks/useJobsFilters.ts";
 export function JobsList() {
     const {filters, setPage} = useJobsFilters();
     const {data, isLoading, isError} = useGetJobsQuery(filters);
-
     if (isLoading) {
         return (
             <Center className={classes.state}>
@@ -15,7 +14,6 @@ export function JobsList() {
             </Center>
         );
     }
-
     if (isError) {
         return (
             <Center className={classes.state}>
@@ -23,7 +21,6 @@ export function JobsList() {
             </Center>
         );
     }
-
     if (!data?.jobs.length) {
         return (
             <Center className={classes.state}>
@@ -31,7 +28,6 @@ export function JobsList() {
             </Center>
         );
     }
-
     return (
         <Stack gap="md">
             <Stack gap="sm">
@@ -39,7 +35,6 @@ export function JobsList() {
                     <JobCard key={job.id} job={job}/>
                 ))}
             </Stack>
-
             <Center>
                 <Pagination
                     value={filters.page}

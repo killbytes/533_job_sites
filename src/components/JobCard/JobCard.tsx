@@ -20,24 +20,19 @@ export function JobCard({job}: JobCardProps) {
                 <Title order={3} className={classes.title}>
                     {job.name}
                 </Title>
-
                 <Group gap="xs" align="baseline">
                     <Text fw={600}>{Number(job.salary).toLocaleString('ru-RU')} ₽</Text>
                     <Text size="sm" c="dimmed">
                         Опыт {job.experience}
                     </Text>
                 </Group>
-
                 <Badge variant="filled" color="blue" className={classes.badge}>
                     {spaceLabels[job.space]}
                 </Badge>
-
                 <Text ta="left" size="sm" c="dimmed">
                     {job.company_name}
                 </Text>
-
                 <Text ta="left" size="sm">{job.city}</Text>
-
                 <Button
                     component={Link}
                     to={`/vacancies/${job.id}`}

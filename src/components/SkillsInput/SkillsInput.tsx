@@ -50,7 +50,6 @@ export function SkillsInput({skills, onChange}: SkillsInputProps)  {
                     size="xs"
                     style={{width: '100%'}}
                 />
-
                 <ActionIcon
                     type="button"
                     variant="light"

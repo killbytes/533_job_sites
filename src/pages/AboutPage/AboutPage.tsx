@@ -6,10 +6,9 @@ export function AboutPage() {
             <Stack gap="md">
                 <Paper radius="xl" p={24}>
                     <Stack gap={10}>
-                        <Title ta="left" order={2}>
+                        <Title ta="left" order={2} c="#000">
                             Кирилл Яковчик
                         </Title>
-
                         <Text ta="left">
                             Привет! Я — Frontend-разработчик. Пишу приложения
                             на React + TypeScript + Redux Toolkit.
